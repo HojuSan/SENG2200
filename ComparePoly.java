@@ -4,7 +4,7 @@ Course:             SENG2200
 Author:             Juyong Kim
 Student No:         c3244203
 Date:               05/03/2019
-Description:        
+Description:        123
 */
 
 public class ComparePoly 
