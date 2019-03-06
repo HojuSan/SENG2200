@@ -15,10 +15,20 @@ public class PA1
 {
     public static void main (String[] args) throws Exception
     {
-        Point no1 = new Point(3.234,4.432);
+        Point no1 = new Point(1,1);
+        Point no2 = new Point(1,3);
+        Point no3 = new Point(3,3);
+        Point no4 = new Point(3,1);
 
-        System.out.println( no1.distance());
-        System.out.println( no1.toString());
+        Polygon poly = new Polygon(4);
+
+        poly.addPoint(no1);
+        poly.addPoint(no2);
+        poly.addPoint(no3);
+        poly.addPoint(no4);
+
+
+
 
 
 

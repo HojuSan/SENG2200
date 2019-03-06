@@ -8,14 +8,18 @@ Description:        Creates a Polygon 123
 */
 public class Polygon
 {
-    private Point[] poly;
+    //figure out how to make arrays of poly
+    private ArrayList<Point> poly;
     private int size;
+    private int sides;
     private double area;
     private double distance;
 
-    public Polygon()
+    public Polygon(int num)
     {
+        Point[] poly = new Point[num];
         area = 0;
+        sides = num;
         size = 0;
     }
 
@@ -28,7 +32,7 @@ public class Polygon
     public void calculateArea()
     {
         //Start of the formula
-        for(int i = 0; i < size; i++)
+        for(int i = 0; i < sides; i++)
         {
             area += (poly[i].getX()*poly[i+1].getY())-(poly[i].getY()*poly[i+1].getY());
         }
@@ -50,7 +54,7 @@ public class Polygon
     {
         double closest = poly[0].getD();
 
-        for(int i = 1; i < size; i++)
+        for(int i = 1; i < sides; i++)
         {
             if(closest > poly[i].getD())
             {
@@ -63,6 +67,16 @@ public class Polygon
 
     public String toString()
     {
-        return
+        String temp = "[";
+        String areaVal = String.format("%5.2f", area);
+
+        for(int i = 0; i < sides; i++)
+        {
+            temp += poly[i].toString();
+        }
+
+        temp += "]: "+ areaVal;
+
+        return temp;
     }
 }
