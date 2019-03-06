@@ -33,11 +33,11 @@ public class Node
         previous = newPrevious;
     }
 
-    //getters
-    public getData()
-    {
-        return data;
-    }
+//    //getters
+//    public getData()
+//    {
+//        return data;
+//    }
     public Node getNext()
     {
         return next;

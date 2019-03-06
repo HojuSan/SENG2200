@@ -9,13 +9,14 @@ Description:        Creates a point
 public class Point
 {
     //variables
-    private double x, y;
+    private double x, y, d;
 
     //constructor
     public Point(double xValue, double yValue)
     {
         this.x = xValue;
         this.y = yValue;
+        this.d = distance();
     }
 
     //getters
@@ -26,6 +27,10 @@ public class Point
     public double getY()
     {
         return y;
+    }
+    public double getD()
+    {
+        return d;
     }
 
     //returns distance from origin
