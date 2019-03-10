@@ -16,17 +16,25 @@ public class PA1
     public static void main (String[] args) throws Exception
     {
         Point no1 = new Point(1,1);
+        System.out.println(no1.toString()); 
         Point no2 = new Point(1,3);
         Point no3 = new Point(3,3);
         Point no4 = new Point(3,1);
+        Point no5 = new Point(1,1);
 
-        Polygon poly = new Polygon(4);
+        Polygon poly = new Polygon(5);
+
 
         poly.addPoint(no1);
         poly.addPoint(no2);
         poly.addPoint(no3);
         poly.addPoint(no4);
-
+        poly.addPoint(no5);
+        System.out.println("before"); 
+        System.out.println(poly.calDistance());
+        poly.calculateArea();
+        System.out.println(poly.toString()); 
+        System.out.println("after"); 
 
 
 

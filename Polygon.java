@@ -9,7 +9,7 @@ Description:        Creates a Polygon 123
 public class Polygon
 {
     //figure out how to make arrays of poly
-    private ArrayList<Point> poly;
+    private Point[] poly;
     private int size;
     private int sides;
     private double area;
@@ -17,10 +17,10 @@ public class Polygon
 
     public Polygon(int num)
     {
-        Point[] poly = new Point[num];
-        area = 0;
-        sides = num;
-        size = 0;
+        this.poly = new Point[num];
+        this.area = 0;
+        this.sides = num;
+        this.size = 0;
     }
 
     public void addPoint(Point pon)
@@ -32,13 +32,14 @@ public class Polygon
     public void calculateArea()
     {
         //Start of the formula
-        for(int i = 0; i < sides; i++)
+        for(int i = 0; i < sides-1; i++)
         {
             area += (poly[i].getX()*poly[i+1].getY())-(poly[i].getY()*poly[i+1].getY());
+            System.out.println(area + " " + i);
         }
 
-        //last calculation for last point to starting point
-        area += (poly[size].getX()*poly[0].getY())-(poly[size].getY()*poly[0].getY());
+//        //last calculation for last point to starting point
+//        area += (poly[size].getX()*poly[0].getY())-(poly[size].getY()*poly[0].getY());
 
         //half the total calculation
         area = area/2;
@@ -69,6 +70,7 @@ public class Polygon
     {
         String temp = "[";
         String areaVal = String.format("%5.2f", area);
+
 
         for(int i = 0; i < sides; i++)
         {
