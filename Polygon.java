@@ -34,8 +34,13 @@ public class Polygon
         //Start of the formula
         for(int i = 0; i < sides-1; i++)
         {
-            area += (poly[i].getX()*poly[i+1].getY())-(poly[i].getY()*poly[i+1].getY());
-            System.out.println(area + " " + i);
+            System.out.println(i + "  iteration");
+
+            area += (poly[i].getX()*poly[i+1].getY())-(poly[i].getY()*poly[i+1].getX());
+
+            System.out.println( (poly[i].getX()*poly[i+1].getY()) +" "+ (-(poly[i].getY()*poly[i+1].getX())));
+
+            System.out.println(area);
         }
 
 //        //last calculation for last point to starting point
