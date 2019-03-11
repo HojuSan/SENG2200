@@ -72,6 +72,7 @@ public class Polygon
     }
 
     //prints out polygon information according to specs
+    @Override
     public String toString()
     {
         String temp = "[";

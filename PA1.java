@@ -58,9 +58,15 @@ public class PA1
 
         MyPolygons polyList = new MyPolygons(3);
 
-        polyList.add(poly1);
-        polyList.add(poly2);
-        polyList.add(poly3);
+        System.out.println(poly1.toString());
+        System.out.println(poly2.toString());
+        System.out.println(poly3.toString());
+
+        polyList.append(poly1);
+        polyList.append(poly2);
+        polyList.append(poly3);
+
+        System.out.println(polyList.printList());
 
 
 
