@@ -16,26 +16,51 @@ public class PA1
     public static void main (String[] args) throws Exception
     {
         Point no1 = new Point(1,1);
-        System.out.println(no1.toString()); 
         Point no2 = new Point(1,3);
         Point no3 = new Point(3,3);
         Point no4 = new Point(3,1);
         Point no5 = new Point(1,1);
 
-        Polygon poly = new Polygon(5);
+        Point bo1 = new Point(1,1);
+        Point bo2 = new Point(1,4);
+        Point bo3 = new Point(4,4);
+        Point bo4 = new Point(4,1);
+        Point bo5 = new Point(1,1);
+
+        Point po1 = new Point(1,1);
+        Point po2 = new Point(1,5);
+        Point po3 = new Point(5,5);
+        Point po4 = new Point(5,1);
+        Point po5 = new Point(1,1);
+
+        Polygon poly1 = new Polygon(5);
+        Polygon poly2 = new Polygon(5);
+        Polygon poly3 = new Polygon(5);
 
 
-        poly.addPoint(no1);
-        poly.addPoint(no2);
-        poly.addPoint(no3);
-        poly.addPoint(no4);
-        poly.addPoint(no5);
-        System.out.println("before"); 
-        System.out.println(poly.calDistance());
-        poly.calculateArea();
-        System.out.println(poly.toString()); 
-        System.out.println("after"); 
+        poly1.addPoint(no1);
+        poly1.addPoint(no2);
+        poly1.addPoint(no3);
+        poly1.addPoint(no4);
+        poly1.addPoint(no5);
 
+        poly2.addPoint(bo1);
+        poly2.addPoint(bo2);
+        poly2.addPoint(bo3);
+        poly2.addPoint(bo4);
+        poly2.addPoint(bo5);
+
+        poly3.addPoint(po1);
+        poly3.addPoint(po2);
+        poly3.addPoint(po3);
+        poly3.addPoint(po4);
+        poly3.addPoint(po5);
+
+        MyPolygons polyList = new MyPolygons(3);
+
+        polyList.add(poly1);
+        polyList.add(poly2);
+        polyList.add(poly3);
 
 
 

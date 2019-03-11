@@ -7,7 +7,7 @@ Date:               05/03/2019
 Description:        123
 */
 
-public class ComparePoly 
+public interface ComparePoly 
 {
     public static void main (String[] args) throws Exception
     {

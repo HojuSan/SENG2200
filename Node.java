@@ -4,7 +4,7 @@ Course:             SENG2200
 Author:             Juyong Kim
 Student No:         c3244203
 Date:               05/03/2019
-Description:        Creates a Node 123
+Description:        Creates a Node 
 */
 public class Node
 {
@@ -33,11 +33,11 @@ public class Node
         previous = newPrevious;
     }
 
-//    //getters
-//    public getData()
-//    {
-//        return data;
-//    }
+    //getters
+    public Object getData()
+    {
+        return data;
+    }
     public Node getNext()
     {
         return next;

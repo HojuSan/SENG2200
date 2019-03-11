@@ -4,17 +4,18 @@ Course:             SENG2200
 Author:             Juyong Kim
 Student No:         c3244203
 Date:               05/03/2019
-Description:        Creates a Polygon 123
+Description:        Creates a Polygon 
 */
 public class Polygon
 {
-    //figure out how to make arrays of poly
+    //variables
     private Point[] poly;
     private int size;
     private int sides;
     private double area;
     private double distance;
 
+    //constructor
     public Polygon(int num)
     {
         this.poly = new Point[num];
@@ -23,28 +24,26 @@ public class Polygon
         this.size = 0;
     }
 
+    //adds points to an array of points saved in polygon
     public void addPoint(Point pon)
     {
         poly[size] = pon;
         size++;
     }
 
-    public void calculateArea()
+    //Inputs points into Polygon area calculation, saves value into private variable area
+    public void calArea()
     {
         //Start of the formula
         for(int i = 0; i < sides-1; i++)
         {
-            System.out.println(i + "  iteration");
+//            System.out.println(i + "  iteration");                                                                //testing purpose
 
             area += (poly[i].getX()*poly[i+1].getY())-(poly[i].getY()*poly[i+1].getX());
 
-            System.out.println( (poly[i].getX()*poly[i+1].getY()) +" "+ (-(poly[i].getY()*poly[i+1].getX())));
-
-            System.out.println(area);
+//            System.out.println( (poly[i].getX()*poly[i+1].getY()) +" "+ (-(poly[i].getY()*poly[i+1].getX())));    //testing purpose
+//            System.out.println(area);
         }
-
-//        //last calculation for last point to starting point
-//        area += (poly[size].getX()*poly[0].getY())-(poly[size].getY()*poly[0].getY());
 
         //half the total calculation
         area = area/2;
@@ -56,6 +55,7 @@ public class Polygon
         }
     }
 
+    //calculates the closest point to the origin, returns the distance
     public double calDistance()
     {
         double closest = poly[0].getD();
@@ -71,6 +71,7 @@ public class Polygon
         return closest;
     }
 
+    //prints out polygon information according to specs
     public String toString()
     {
         String temp = "[";

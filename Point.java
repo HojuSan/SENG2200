@@ -4,7 +4,7 @@ Course:             SENG2200
 Author:             Juyong Kim
 Student No:         c3244203
 Date:               05/03/2019
-Description:        Creates a point 123
+Description:        Creates a point
 */
 public class Point
 {
@@ -44,7 +44,7 @@ public class Point
         return dis;
     }
 
-    //returns point in string format
+    //returns point in string %4.2f format 
     public String toString()
     {
         String coordinate = "";
