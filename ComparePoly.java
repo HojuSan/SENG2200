@@ -7,7 +7,7 @@ Date:               05/03/2019
 Description:        comepares polygons
 */
 
-public class ComparePoly
+public interface ComparePoly
 {
 
 }

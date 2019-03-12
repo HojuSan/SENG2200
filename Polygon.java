@@ -6,7 +6,7 @@ Student No:         c3244203
 Date:               05/03/2019
 Description:        Creates a Polygon 
 */
-public class Polygon
+public class Polygon extends ComparePoly
 {
     //variables
     private Point[] poly;
@@ -14,6 +14,7 @@ public class Polygon
     private int sides;
     private double area;
     private double distance;
+    private String print;
 
     //constructor
     public Polygon(int num)
@@ -22,6 +23,12 @@ public class Polygon
         this.area = 0;
         this.sides = num;
         this.size = 0;
+        this.print = "";
+    }
+
+    public String getPrint()
+    {
+        return print;
     }
 
     //adds points to an array of points saved in polygon
@@ -75,6 +82,7 @@ public class Polygon
     @Override
     public String toString()
     {
+        calArea();
         String temp = "[";
         String areaVal = String.format("%5.2f", area);
 
@@ -85,7 +93,7 @@ public class Polygon
         }
 
         temp += "]: "+ areaVal;
-
+        this.print = temp;
         return temp;
     }
 }
