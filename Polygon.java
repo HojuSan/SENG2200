@@ -26,9 +26,9 @@ public class Polygon extends ComparePoly
         this.print = "";
     }
 
-    public String getPrint()
+    public String getArea()
     {
-        return print;
+        return area;
     }
 
     //adds points to an array of points saved in polygon
@@ -44,12 +44,7 @@ public class Polygon extends ComparePoly
         //Start of the formula
         for(int i = 0; i < sides-1; i++)
         {
-//            System.out.println(i + "  iteration");                                                                //testing purpose
-
             area += (poly[i].getX()*poly[i+1].getY())-(poly[i].getY()*poly[i+1].getX());
-
-//            System.out.println( (poly[i].getX()*poly[i+1].getY()) +" "+ (-(poly[i].getY()*poly[i+1].getX())));    //testing purpose
-//            System.out.println(area);
         }
 
         //half the total calculation
