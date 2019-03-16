@@ -10,76 +10,40 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
+import java.lang.String;
+import java.nio.file.*;
+import java.io.IOException;
+import java.util.List;
+import java.util.LinkedList;
+import java.util.ArrayList;
 
 public class PA1
 {
     public static void main (String[] args) throws Exception
     {
 
+        //variables
         String dataFile = args[0]; 
-        readFile(dataFile);
+        List<String> input = new LinkedList<String>();
+        int amount = 0;
+        
+        //function to read file data
+        readFile(dataFile, input, amount);
 
-        Point no1 = new Point(1,1);
-        Point no2 = new Point(1,3);
-        Point no3 = new Point(3,3);
-        Point no4 = new Point(3,1);
-        Point no5 = new Point(1,1);
+        //instantiates the amount of polygons within myPolygons
+        MyPolygons myPolyList = new MyPolygons(amount);
 
-        Point bo1 = new Point(1,1);
-        Point bo2 = new Point(1,4);
-        Point bo3 = new Point(4,4);
-        Point bo4 = new Point(4,1);
-        Point bo5 = new Point(1,1);
+        //function to create the list
+        createList(input, myPolyList);
 
-        Point po1 = new Point(1,1);
-        Point po2 = new Point(1,5);
-        Point po3 = new Point(5,5);
-        Point po4 = new Point(5,1);
-        Point po5 = new Point(1,1);
+        System.out.println(myPolyList.printList());
 
-        Polygon poly1 = new Polygon(5);
-        Polygon poly2 = new Polygon(5);
-        Polygon poly3 = new Polygon(5);
-
-
-        poly1.addPoint(no1);
-        poly1.addPoint(no2);
-        poly1.addPoint(no3);
-        poly1.addPoint(no4);
-        poly1.addPoint(no5);
-
-        poly2.addPoint(bo1);
-        poly2.addPoint(bo2);
-        poly2.addPoint(bo3);
-        poly2.addPoint(bo4);
-        poly2.addPoint(bo5);
-
-        poly3.addPoint(po1);
-        poly3.addPoint(po2);
-        poly3.addPoint(po3);
-        poly3.addPoint(po4);
-        poly3.addPoint(po5);
-
-        MyPolygons polyList = new MyPolygons(3);
-
-        System.out.println(poly1.toString());
-        System.out.println(poly2.toString());
-        System.out.println(poly3.toString());
-
-        polyList.append(poly1);
-        polyList.append(poly2);
-        polyList.append(poly3);
-
-        System.out.println(polyList.printList());
-
-        System.out.println("functioning");
-    }
+    }//end of Main 
 
     //recieves the file name and saves the variables into string lists
-    public static void readFile(String fileName)
+    public static void readFile(String fileName, List<String> input, int amount)
     {
         //variables
-        List<String> input = new LinkedList<String>();
         String token1;          //dummy variable used for text manipulation
 
         //loading files into stuff
@@ -91,34 +55,33 @@ public class PA1
             try 
             {
 
-//          Data manipulation is done here figure it out
+                //Data manipulation is done here figure it out
+                //split by into string list outside while loop
+                while(file1.hasNext())
+                {
+                    token1 = file1.next();
+                    input.add(token1);
+                }                  
+                //System.out.println("finished while loop");
+                
+                //updates the amount of polygons in the data file
+                for(int i = 0; i < input.size(); i++)
+                {
+                    if(input.get(i).equals("P"))
+                    {
+                        amount++;
+                    }
+                }
 
-//                //split by into string list outside while loop
-//                while(file1.hasNext())
-//                {
-//                    token1 = file1.next();
-//                    input.add(token1);
-//                }                  
-//
-//                //saves the pages into a process
-//                if(input.get(0).equals("begin"))
-//                {
-//                    //ignore the first part of file
-//                    //since its begin and input.size()-1
-//                    //to ignore the end string
-//                    for(int i = 1; i < input.size()-1; i++)
-//                    {
-//                        process.addPage(input.get(i));
-//                    }
-//
-//                }
-//
+                //System.out.println("finished updating amount");
+
             } 
             catch (NoSuchElementException e) 
             {
                 System.out.println("Empty file, or invalid contents!");
             }
 
+            System.out.println("finished reading file");
             //close all the files
             file1.close();
         } 
@@ -126,5 +89,48 @@ public class PA1
         { 
             System.out.println("File not found! Please give a valid file!");
         }
+    }
+
+    public static void createList(List<String> input, MyPolygons myPolyList)
+    {
+                //beginning for loop looks for a p to start loading points into polygons
+                for(int i = 0; i < input.size(); i++)
+                {
+                    if(input.get(i).equals("P"))
+                    {
+                        //System.out.println("Entered equals p section");
+                        //polygon verticies number
+                        int pNum = Integer.parseInt(input.get(i+1));
+                        int cNum = 0;
+        
+                        //System.out.println("pNum is: "+pNum);
+                        //creates a polygon of n+1 verticies
+                        Polygon polyList = new Polygon(pNum+1);
+        
+                        //creates a list of points to insert into the polygon
+                        Point[] pList = new Point[pNum+1];
+        
+                        //this might be where the error is
+                        for(int j = i+2; j < i+(2*(pNum+1)); j+=2)
+                        {
+                            //System.out.println("i is: "+ i);
+                            //System.out.println("j is: "+j);
+                            //saves x point then y point respectively
+                            pList[cNum] = new Point(Integer.parseInt(input.get(j)),Integer.parseInt(input.get(j+1)));
+        
+                            polyList.addPoint(pList[cNum]);
+        
+                            cNum++;
+                        }
+        
+                        //saves x point then y point respectively
+                        pList[cNum] = new Point(Integer.parseInt(input.get(i+2)),Integer.parseInt(input.get(i+3)));
+        
+                        polyList.addPoint(pList[cNum]);
+        
+                        myPolyList.append(polyList);
+                        //System.out.println("Last for loop has ended");
+                    }
+                }
     }
 }

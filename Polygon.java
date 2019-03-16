@@ -6,7 +6,7 @@ Student No:         c3244203
 Date:               05/03/2019
 Description:        Creates a Polygon 
 */
-public class Polygon extends ComparePoly
+public class Polygon //extends ComparePoly
 {
     //variables
     private Point[] poly;
@@ -26,7 +26,7 @@ public class Polygon extends ComparePoly
         this.print = "";
     }
 
-    public String getArea()
+    public double getArea()
     {
         return area;
     }
@@ -41,6 +41,8 @@ public class Polygon extends ComparePoly
     //Inputs points into Polygon area calculation, saves value into private variable area
     public void calArea()
     {
+        this.area = 0;
+        
         //Start of the formula
         for(int i = 0; i < sides-1; i++)
         {
