@@ -9,5 +9,5 @@ Description:        comepares polygons
 
 public interface ComparePoly
 {
-
+    public boolean compare(Polygon poly);
 }

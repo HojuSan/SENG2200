@@ -6,7 +6,7 @@ Student No:         c3244203
 Date:               05/03/2019
 Description:        Creates a circular linked list containing polygons 123
 */
-public class MyPolygons
+public class MyPolygons 
 {
 
     private Node head;
@@ -24,14 +24,26 @@ public class MyPolygons
         this.size = 0;
     }
 
+    public MyPolygons()
+    {
+        this.head = null;
+        this.current = null;
+        this.tail = null;
+        this.total = 0;
+        this.size = 0;
+    }
+
     public boolean isEmpty()
     {
         return head == null;
     }
-
     public int getSize()
     {
         return size;
+    }
+    public Node getCurrent()
+    {
+        return current;
     }
 
     //add elements to the back
@@ -111,6 +123,32 @@ public class MyPolygons
         size++ ;        
     }
 
+//    //compares area and distances and sorts the array
+//    public void insertionSort()
+//    {
+//        boolean sorted = false;
+//        moveToHead();
+//
+//        while(sorted!=true)
+//        {
+//            sorted = true;
+//
+//            for(int i = 1; i < size; i++)
+//            {
+//                forward();
+//
+//                for(int j = i; j < 0; j--)
+//                {
+//                    if(current.getData().compare(current.getPrevious().getData()))
+//                    {
+//                        insert(current, j-1);
+//                    }
+//                } 
+//            }
+//        }
+//
+//    }
+
     //remove the head of the list
     public void removeHead()
     {
@@ -163,6 +201,7 @@ public class MyPolygons
         for(int i = 0; i < size; i++)
         {
             list += current.getData().toString()+"\n";
+            //System.out.println(current.getData());
             forward();
         }
 
