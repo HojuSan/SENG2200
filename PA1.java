@@ -91,11 +91,11 @@ public class PA1
         {
             e.printStackTrace();
         }
-        //myPolyListOrdered.insertionSort();
 
         //tada the actual assignment
         System.out.println(myPolyList.printList());
-        System.out.println(myPolyListOrdered.printList());
+
+        System.out.println(myPolyListOrdered.insertionSort().printList());
 
     }//end of Main 
 

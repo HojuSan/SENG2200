@@ -1,12 +1,14 @@
+import javax.lang.model.util.ElementScanner6;
+
 /*
 Title:              Assignment1 MyPolygons.java
 Course:             SENG2200
 Author:             Juyong Kim
 Student No:         c3244203
 Date:               05/03/2019
-Description:        Creates a circular linked list containing polygons 123
+Description:        Creates a circular doubly linked list containing polygons
 */
-public class MyPolygons //implements ComparePoly
+public class MyPolygons 
 {
 
     private Node head;
@@ -85,6 +87,7 @@ public class MyPolygons //implements ComparePoly
     }
 
     //insert into a position designated
+    //used when adding a polygon to a certain location
     public void insert(Polygon poly, int pos)
     {
         //beginning starts at 0 not 1
@@ -112,33 +115,51 @@ public class MyPolygons //implements ComparePoly
         size++ ;        
     }
 
-    //compares area and distances and sorts the array
+    //ascending order insertionSort;
     public void insertionSort()
     {
+        int count = getSize();
 
-        //start at the 2nd element of the list
-        moveToHead();
-        forward();
-        //used for insert purposes
-        int location = 0;
+        for(int i = 1; i < count; ++i)
+        {
+            int j = 0;
+            moveToHead();
 
-        
+            for(int j = 0; j<i;j++)
+            {
+                forward();
+                j++;
+            }
 
-        /*
-        for (int i = 1; i < n; ++i) { 
-            int key = arr[i]; 
-            int j = i - 1; 
-  
-                //Move elements of arr[0..i-1], that are 
-               //greater than key, to one position ahead 
-               //of their current position 
-               while (j >= 0 && arr[j] > key) { 
-                arr[j + 1] = arr[j]; 
-                j = j - 1; 
+            Node key = current;
+            j = j-1;
+
+            while()
+            {
+                //this is where the function will go
+            }
+        }
+
+        void sort(int arr[]) 
+        { 
+            //int n = arr.length; 
+            for (int i = 1; i < n; ++i) 
+            { 
+                int key = arr[i]; 
+                int j = i - 1; 
+    
+                /* Move elements of arr[0..i-1], that are 
+                greater than key, to one position ahead 
+                of their current position */
+                while (j >= 0 && arr[j] > key) 
+                { 
+                    arr[j + 1] = arr[j]; 
+                    j = j - 1; 
+                } 
+                arr[j + 1] = key; 
             } 
-            arr[j + 1] = key; 
         } 
-         */
+
     }
 
     //remove the head of the list
