@@ -115,11 +115,14 @@ public class MyPolygons //implements ComparePoly
     //compares area and distances and sorts the array
     public void insertionSort()
     {
-        int num = this.size;
-        for(int i = 1; i < num; i++)
-        {
 
-        }
+        //start at the 2nd element of the list
+        moveToHead();
+        forward();
+        //used for insert purposes
+        int location = 0;
+
+        
 
         /*
         for (int i = 1; i < n; ++i) { 
