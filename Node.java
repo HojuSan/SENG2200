@@ -10,9 +10,9 @@ public class Node
 {
     private Node next;
     private Node previous;
-    private Object data;
+    private Polygon data;
 
-    public Node(Object dataValue)
+    public Node(Polygon dataValue)
     {
         next = null;
         previous = null;
@@ -20,7 +20,7 @@ public class Node
     }
 
     //setters
-    public void setData(Object dataValue)
+    public void setData(Polygon dataValue)
     {
         data = dataValue;
     }
@@ -34,7 +34,7 @@ public class Node
     }
 
     //getters
-    public Object getData()
+    public Polygon getData()
     {
         return data;
     }

@@ -6,7 +6,7 @@ Student No:         c3244203
 Date:               05/03/2019
 Description:        Creates a Polygon 
 */
-public class Polygon //implements ComparePoly
+public class Polygon implements ComparePoly
 {
     //variables
     private Point[] poly;
@@ -26,9 +26,18 @@ public class Polygon //implements ComparePoly
         this.print = "";
     }
 
+    //getters
     public String getPrint()
     {
         return print;
+    }
+    public double getArea()
+    {
+        return area;
+    }
+    public double getDistance()
+    {
+        return distance;
     }
 
     //adds points to an array of points saved in polygon
@@ -78,11 +87,45 @@ public class Polygon //implements ComparePoly
         return closest;
     }
 
+    //returns true if this poly is bigger
+    public boolean compare(Polygon poly)
+    {
+        //determine ratio between the area of two polygons
+        double ratio = this.area / poly.getArea();
+
+        //if area is the same ratio is 1
+        if (this.area == 0 && poly.getArea() == 0)
+        {
+            ratio = 1;
+        }
+        //if difference is greater than 0.05 it is bigger
+        if (this.area > poly.getArea() && (ratio > 1.05 || ratio < 0.95))
+        {
+            return true;
+        }
+        //
+		else if (ratio <= 1.05 && ratio >= 0.95)
+		{
+			//checks vertices
+            if (this.distance > poly.getDistance())
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+		}
+        else
+        {
+            return false;
+        }
+    }
+
     //prints out polygon information according to specs
     @Override
     public String toString()
     {
-        calArea();
         String temp = "[";
         String areaVal = String.format("%5.2f", area);
 

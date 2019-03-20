@@ -6,30 +6,19 @@ Student No:         c3244203
 Date:               05/03/2019
 Description:        Creates a circular linked list containing polygons 123
 */
-public class MyPolygons 
+public class MyPolygons //implements ComparePoly
 {
 
     private Node head;
     private Node current;
     private Node tail;
-    private int total;
     private int size;
-
-    public MyPolygons(int num)
-    {
-        this.head = null;
-        this.current = null;
-        this.tail = null;
-        this.total = num;
-        this.size = 0;
-    }
 
     public MyPolygons()
     {
         this.head = null;
         this.current = null;
         this.tail = null;
-        this.total = 0;
         this.size = 0;
     }
 
@@ -123,31 +112,31 @@ public class MyPolygons
         size++ ;        
     }
 
-//    //compares area and distances and sorts the array
-//    public void insertionSort()
-//    {
-//        boolean sorted = false;
-//        moveToHead();
-//
-//        while(sorted!=true)
-//        {
-//            sorted = true;
-//
-//            for(int i = 1; i < size; i++)
-//            {
-//                forward();
-//
-//                for(int j = i; j < 0; j--)
-//                {
-//                    if(current.getData().compare(current.getPrevious().getData()))
-//                    {
-//                        insert(current, j-1);
-//                    }
-//                } 
-//            }
-//        }
-//
-//    }
+    //compares area and distances and sorts the array
+    public void insertionSort()
+    {
+        int num = this.size;
+        for(int i = 1; i < num; i++)
+        {
+
+        }
+
+        /*
+        for (int i = 1; i < n; ++i) { 
+            int key = arr[i]; 
+            int j = i - 1; 
+  
+                //Move elements of arr[0..i-1], that are 
+               //greater than key, to one position ahead 
+               //of their current position 
+               while (j >= 0 && arr[j] > key) { 
+                arr[j + 1] = arr[j]; 
+                j = j - 1; 
+            } 
+            arr[j + 1] = key; 
+        } 
+         */
+    }
 
     //remove the head of the list
     public void removeHead()
