@@ -145,17 +145,18 @@ public class MyPolygons
             //int n = arr.length; 
             for (int i = 1; i < n; ++i) 
             { 
+                //selects the first unsorted element
                 int key = arr[i]; 
                 int j = i - 1; 
     
-                /* Move elements of arr[0..i-1], that are 
-                greater than key, to one position ahead 
-                of their current position */
+                //loop shifts all the elements to right to create position
+                //for unsorted element
                 while (j >= 0 && arr[j] > key) 
                 { 
                     arr[j + 1] = arr[j]; 
                     j = j - 1; 
                 } 
+                //inserts unsorted element into the correct position
                 arr[j + 1] = key; 
             } 
         } 
