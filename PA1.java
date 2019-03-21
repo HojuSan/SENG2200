@@ -4,14 +4,13 @@ Course:             SENG2200
 Author:             Juyong Kim
 Student No:         c3244203
 Date:               05/03/2019
-Description:        123
+Description:        Main file, just prints the polygon lists, based off input and insertionsort
 */
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.lang.String;
 import java.io.IOException;
-
 public class PA1
 {
     public static void main (String[] args) throws IOException
@@ -42,14 +41,12 @@ public class PA1
                 while (lineScanner.hasNext()) 
                 {
                     String part = lineScanner.next();
-                    System.out.print(part + " ");                                                   //
 
                     if(part.equals("P"))
                     {
 
                         //num after P/ verticies
                         String verticies = lineScanner.next();
-                        System.out.print(verticies + " ");                                          //
                         int pNum = Integer.parseInt(verticies);
                         int cNum = 0;
 
@@ -64,27 +61,24 @@ public class PA1
                         {
                             //generates values
                             String xValue = lineScanner.next();
-                            System.out.print(xValue + " ");                                         //
                             String yValue = lineScanner.next();
-                            System.out.print(yValue+ " ");                                          //
 
                             //saves x point then y point respectively
                             pList[cNum] = new Point(Double.parseDouble(xValue),Double.parseDouble(yValue));
-
                             poly.addPoint(pList[cNum]);
-
                             cNum++;
                         }
 
                         //adds first element to the last
+                        //add triggers the area/distance calculations
                         poly.addPoint(pList[0]);
                         poly.calArea();
+                        poly.calDistance();
                         myPolyList.append(poly);
                         myPolyListOrdered.append(poly);
 
                     }
                 }                
-                System.out.println();
             }
         }//end of try 
         catch (FileNotFoundException e) 
@@ -92,10 +86,12 @@ public class PA1
             e.printStackTrace();
         }
 
+        System.out.println();
+        
         //tada the actual assignment
-        System.out.println(myPolyList.printList());
+        System.out.println(myPolyList.printList());                                 //Printing based off input order
 
-        System.out.println(myPolyListOrdered.insertionSort().printList());
+        System.out.println(myPolyListOrdered.insertionSort().printList());          //Printing in ascending order from insertionSort
 
     }//end of Main 
 

@@ -3,8 +3,8 @@ Title:              Assignment1 Polygon.java
 Course:             SENG2200
 Author:             Juyong Kim
 Student No:         c3244203
-Date:               05/03/2019
-Description:        Creates a Polygon 
+Date:               21/03/2019
+Description:        Creates a Polygon, implements an interface as well 
 */
 public class Polygon implements ComparePoly
 {
@@ -38,7 +38,7 @@ public class Polygon implements ComparePoly
     }
     public double getDistance()
     {
-        return calDistance();
+        return distance;
     }
 
     //adds points to an array of points saved in polygon
@@ -54,12 +54,7 @@ public class Polygon implements ComparePoly
         //Start of the formula
         for(int i = 0; i < sides-1; i++)
         {
-//            System.out.println(i + "  iteration");                                                                //testing purpose
-
             area += (poly[i].getX()*poly[i+1].getY())-(poly[i].getY()*poly[i+1].getX());
-
-//            System.out.println( (poly[i].getX()*poly[i+1].getY()) +" "+ (-(poly[i].getY()*poly[i+1].getX())));    //testing purpose
-//            System.out.println(area);
         }
 
         //half the total calculation
@@ -84,6 +79,7 @@ public class Polygon implements ComparePoly
                 closest = poly[i].getD();
             }
         }
+        this.distance = closest;
 
         return closest;
     }
@@ -103,20 +99,18 @@ public class Polygon implements ComparePoly
         //area is states as the same
         if(ratio <= 1.05 && ratio >= 0.95)
         {
-            //if vertex distance is smaller then return false
+            //if vertex distance is smaller then return true
             if(this.getDistance() > poly.getDistance())
             {
-                System.out.println("here1");
                 return true;
             }
+            //if the same distance return false
             else if(this.getDistance() == poly.getDistance())
             {
-                System.out.println("here2 "+getDistance()+"        "+poly.getDistance()+"     "+getPrint());
                 return false;
             }
             else
             {
-                System.out.println("here3");
                 return false;
             }
         }

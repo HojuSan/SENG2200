@@ -1,21 +1,20 @@
-import javax.lang.model.util.ElementScanner6;
-
 /*
 Title:              Assignment1 MyPolygons.java
 Course:             SENG2200
 Author:             Juyong Kim
 Student No:         c3244203
-Date:               05/03/2019
+Date:               21/03/2019
 Description:        Creates a circular doubly linked list containing polygons
 */
 public class MyPolygons 
 {
-
+    //variables
     private Node head;
     private Node current;
     private Node tail;
     private int size;
 
+    //constructor
     public MyPolygons()
     {
         this.head = null;
@@ -24,6 +23,7 @@ public class MyPolygons
         this.size = 0;
     }
 
+    //getters
     public boolean isEmpty()
     {
         return head == null;
@@ -41,6 +41,7 @@ public class MyPolygons
     public void prepend(Polygon poly)
     {
         Node temp = new Node(poly);
+        //if its empty just add
         if(head == null)
         {
             temp.setNext(temp);
@@ -49,6 +50,7 @@ public class MyPolygons
             current = head;
             tail = head;
         }
+        //making sure next and previous is set correctly
         else
         {
             temp.setPrevious(tail);
@@ -58,6 +60,7 @@ public class MyPolygons
             head = temp;
             current = head;
         }
+        //ups size
         size++;
 
     }
@@ -66,6 +69,7 @@ public class MyPolygons
     public void append(Polygon poly)
     {
         Node temp = new Node(poly);       
+        //if its empty just add
         if (head == null)
         {
             temp.setNext(temp);
@@ -74,6 +78,7 @@ public class MyPolygons
             tail = head;
             current = tail;
         }
+        //making sure next and previous is set correctly
         else
         {
             temp.setPrevious(tail);
@@ -83,6 +88,7 @@ public class MyPolygons
             tail = temp;
             current = tail;
         }
+        //updates size
         size++;        
     }
 
@@ -99,6 +105,8 @@ public class MyPolygons
             return;
         }           
         Node tempHead = head;
+        //makes sure once an poly is inserted the next and previous
+        //is still set correctly
         for (int i = 1; i < size; i++)
         {
             if (i == pos)
@@ -112,6 +120,7 @@ public class MyPolygons
             }
             tempHead = tempHead.getNext();           
         }
+        //ups the size of MyPolygons
         size++ ;        
     }
 
@@ -128,19 +137,14 @@ public class MyPolygons
         //move to the head of the list
         moveToHead();
 
+        //load list into an array for easier manipulation
         for(int t = 0; t < num; t++)
         {
             list[t] = current.getData(); 
             forward();
         }
 
-        //printing array for testing purposes
-        for(int n = 0; n < list.length; n++)
-        {
-            System.out.println("postion "+n+" is "+list[n]);
-        }
-
-        //int n = arr.length; 
+        //insertion sort algorithm
         for (int i = 1; i < list.length; ++i) 
         { 
             //selects the first unsorted element
@@ -149,7 +153,6 @@ public class MyPolygons
 
             //loop shifts all the elements to right to create position
             //for unsorted element
-            //while (j >= 0 && list[j] > key) 
             while(j >=0 && list[j].compare(key) == true)
             { 
                 list[j + 1] = list[j]; 
@@ -159,21 +162,19 @@ public class MyPolygons
             list[j + 1] = key; 
         } 
 
-        System.out.println("");
         //printing array for testing purposes
         for(int n = 0; n < list.length; n++)
         {
             sorted.append(list[n]);
         }
 
-
-        return sorted;   //create return a mypolygon 
+        return sorted;   //create return a mypolygon that is sorted
     }
 
     //remove the head of the list
     public void removeHead()
     {
-        if(size == 0)													//if listLength is zero just return									
+        if(size == 0)												//if listLength is zero just return									
 		{
 			return;															
 		}
@@ -187,8 +188,8 @@ public class MyPolygons
 		}
 		else																
 		{
-			Node headTemp = head;											//create new node, saves head into headTemp
-			head = headTemp.getNext();										//saves the next node as the new head															
+            Node headTemp = head;									//create new node, saves head into headTemp
+            head = headTemp.getNext();								//saves the next node as the new head															
 			headTemp = null;	
 
 			size--;													//reduces listLength by 1

@@ -3,15 +3,17 @@ Title:              Assignment1 Polygon.java
 Course:             SENG2200
 Author:             Juyong Kim
 Student No:         c3244203
-Date:               05/03/2019
+Date:               21/03/2019
 Description:        Creates a Node 
 */
 public class Node
 {
+    //variables
     private Node next;
     private Node previous;
     private Polygon data;
 
+    //constructor
     public Node(Polygon dataValue)
     {
         next = null;

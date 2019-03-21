@@ -3,7 +3,7 @@ Title:              Assignment1 Point.java
 Course:             SENG2200
 Author:             Juyong Kim
 Student No:         c3244203
-Date:               05/03/2019
+Date:               21/03/2019
 Description:        Creates a point
 */
 public class Point
