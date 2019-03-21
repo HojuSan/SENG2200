@@ -69,7 +69,7 @@ public class PA1
                             System.out.print(yValue+ " ");                                          //
 
                             //saves x point then y point respectively
-                            pList[cNum] = new Point(Integer.parseInt(xValue),Integer.parseInt(yValue));
+                            pList[cNum] = new Point(Double.parseDouble(xValue),Double.parseDouble(yValue));
 
                             poly.addPoint(pList[cNum]);
 

@@ -24,6 +24,7 @@ public class Polygon implements ComparePoly
         this.sides = num;
         this.size = 0;
         this.print = "";
+        this.distance = 0;
     }
 
     //getters
@@ -37,7 +38,7 @@ public class Polygon implements ComparePoly
     }
     public double getDistance()
     {
-        return distance;
+        return calDistance();
     }
 
     //adds points to an array of points saved in polygon
@@ -87,42 +88,6 @@ public class Polygon implements ComparePoly
         return closest;
     }
 
-//    //returns true if this poly is bigger
-//    //-1 smaller, 0 same size, 1 bigger
-//    public boolean compare(Polygon poly)
-//    {
-//        //determine ratio between the area of two polygons
-//        double ratio = this.area / poly.getArea();
-//
-//        //if no area default same
-//        if (this.area == 0 && poly.getArea() == 0)
-//        {
-//            ratio = 1;
-//        }
-//        //if difference is greater than 0.05 it is bigger
-//        if (this.area > poly.getArea() && (ratio > 1.05 || ratio < 0.95))
-//        {
-//            return true;
-//        }
-//        //
-//		else if (ratio <= 1.05 && ratio >= 0.95)
-//		{
-//			//checks vertices
-//            if (this.distance > poly.getDistance())
-//            {
-//                return true;
-//            }
-//            else
-//            {
-//                return false;
-//            }
-//		}
-//        else
-//        {
-//            return false;
-//        }
-//    }
-
     //bigger or the same return true, if smaller return false 
     public boolean compare(Polygon poly)
     {
@@ -139,13 +104,20 @@ public class Polygon implements ComparePoly
         if(ratio <= 1.05 && ratio >= 0.95)
         {
             //if vertex distance is smaller then return false
-            if(this.getDistance() < poly.getDistance())
+            if(this.getDistance() > poly.getDistance())
             {
+                System.out.println("here1");
+                return true;
+            }
+            else if(this.getDistance() == poly.getDistance())
+            {
+                System.out.println("here2 "+getDistance()+"        "+poly.getDistance()+"     "+getPrint());
                 return false;
             }
             else
             {
-                return true;
+                System.out.println("here3");
+                return false;
             }
         }
 

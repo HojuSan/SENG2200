@@ -116,51 +116,58 @@ public class MyPolygons
     }
 
     //ascending order insertionSort;
-    public void insertionSort()
+    public MyPolygons insertionSort()
     {
-        int count = getSize();
+        //gets mypolygons size
+        int num = this.size;
 
-        for(int i = 1; i < count; ++i)
+        //create an array of nodes containing polygons
+        Polygon[] list = new Polygon[num];
+        MyPolygons sorted = new MyPolygons();
+
+        //move to the head of the list
+        moveToHead();
+
+        for(int t = 0; t < num; t++)
         {
-            int j = 0;
-            moveToHead();
-
-            for(int j = 0; j<i;j++)
-            {
-                forward();
-                j++;
-            }
-
-            Node key = current;
-            j = j-1;
-
-            while()
-            {
-                //this is where the function will go
-            }
+            list[t] = current.getData(); 
+            forward();
         }
 
-        void sort(int arr[]) 
+        //printing array for testing purposes
+        for(int n = 0; n < list.length; n++)
+        {
+            System.out.println("postion "+n+" is "+list[n]);
+        }
+
+        //int n = arr.length; 
+        for (int i = 1; i < list.length; ++i) 
         { 
-            //int n = arr.length; 
-            for (int i = 1; i < n; ++i) 
+            //selects the first unsorted element
+            Polygon key = list[i]; 
+            int j = i - 1; 
+
+            //loop shifts all the elements to right to create position
+            //for unsorted element
+            //while (j >= 0 && list[j] > key) 
+            while(j >=0 && list[j].compare(key) == true)
             { 
-                //selects the first unsorted element
-                int key = arr[i]; 
-                int j = i - 1; 
-    
-                //loop shifts all the elements to right to create position
-                //for unsorted element
-                while (j >= 0 && arr[j] > key) 
-                { 
-                    arr[j + 1] = arr[j]; 
-                    j = j - 1; 
-                } 
-                //inserts unsorted element into the correct position
-                arr[j + 1] = key; 
+                list[j + 1] = list[j]; 
+                j = j - 1; 
             } 
+            //inserts unsorted element into the correct position
+            list[j + 1] = key; 
         } 
 
+        System.out.println("");
+        //printing array for testing purposes
+        for(int n = 0; n < list.length; n++)
+        {
+            sorted.append(list[n]);
+        }
+
+
+        return sorted;   //create return a mypolygon 
     }
 
     //remove the head of the list
